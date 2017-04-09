@@ -10,9 +10,11 @@ import android.widget.Toast;
 
 import com.example.sus.caijiannnanwork.Adapter.MyBaseAdapter;
 import com.example.sus.caijiannnanwork.Bean.JsonBean;
+import com.example.sus.caijiannnanwork.Fragment1.Fragment1;
 import com.example.sus.caijiannnanwork.Httputlis.MyAsyncTask;
 import com.example.sus.caijiannnanwork.Urlutlis.MyUrl;
 import com.google.gson.Gson;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.util.List;
 
@@ -24,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SlidingMenu slidingMenu = new SlidingMenu(this);
+        //设置slidingMenu在全屏都可以滑动
+        slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        //设置侧滑显示的宽度
+        slidingMenu.setShadowWidth(700);
+        slidingMenu.setMenu(R.layout.frag2);
+        getSupportFragmentManager().beginTransaction().add(R.id.f,new Fragment1(),"f1").commit();
         //通过资源id获取控件
         lv = (ListView) findViewById(R.id.list);
         //创建异步线程
