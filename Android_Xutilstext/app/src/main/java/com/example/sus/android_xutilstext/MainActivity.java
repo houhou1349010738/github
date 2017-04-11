@@ -2,13 +2,15 @@ package com.example.sus.android_xutilstext;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.sus.android_xutilstext.Fragment.Fragment1;
 import com.example.sus.android_xutilstext.MagAdapter.MagIntorAdapter;
 import com.example.sus.android_xutilstext.MyAdapter.MypagerAdapter;
 import com.example.sus.android_xutilstext.Urlutlis.MyUrl;
+import com.example.sus.android_xutilstext.Xutils.Xutilspost;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 
@@ -17,15 +19,19 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
     private ViewPager vp;
     private List<String> list;
     private MagicIndicator mag;
     private List<Fragment> frag = new ArrayList<>();
+    private List<String> path = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i("TAG","---------------------------234");
+       new Xutilspost("http://result.eolinker.com/gfGTLlHc049c6b450500b16971f52bd8e83f6b2fed305ab").Post("news");
+
         initdata();//创建一个初始化数据的方法
         initview();//创建一个通过资源id获取控件的方法
         x.view().inject(this);//初始化xutlis
@@ -60,14 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initdata() {
         list = new ArrayList<>();
-        list.add("推荐");list.add("热点");list.add("本地");list.add("视频");list.add("社会");
-        list.add("娱乐");list.add("科技");list.add("汽车");list.add("体育");list.add("财经");
+        list.add("头条");list.add("社会");list.add("国内");list.add("国际");list.add("娱乐");
+        list.add("体育");list.add("军事");list.add("科技");list.add("财经");list.add("时尚");
         frag.add(new Fragment1(MyUrl.path,"jinritouxiaotoutiao"));
-        frag.add(new Fragment1(MyUrl.path2,"jinritoutiaoshehui"));frag.add(new Fragment1(MyUrl.path3,"jinritoutiao"));
-        frag.add(new Fragment1(MyUrl.path4,"jinritoutiaoguoji"));frag.add(new Fragment1(MyUrl.path5,"jinritoutiaoyule"));
-        frag.add(new Fragment1(MyUrl.path6,"jinritoutiaotiyu"));frag.add(new Fragment1(MyUrl.path7,"jinritoutiaojunshi"));
-        frag.add(new Fragment1(MyUrl.path8,"jinritoutiaokeji"));frag.add(new Fragment1(MyUrl.path9,"jinritoutiaocaijing"));
-        frag.add(new Fragment1(MyUrl.path10,"jinritoutiaoshishang"));
+        frag.add(new Fragment1(MyUrl.path,"jinritoutiaoshehui"));frag.add(new Fragment1(MyUrl.path,"jinritoutiao"));
+        frag.add(new Fragment1(MyUrl.path,"jinritoutiaoguoji"));frag.add(new Fragment1(MyUrl.path,"jinritoutiaoyule"));
+        frag.add(new Fragment1(MyUrl.path,"jinritoutiaotiyu"));frag.add(new Fragment1(MyUrl.path,"jinritoutiaojunshi"));
+        frag.add(new Fragment1(MyUrl.path,"jinritoutiaokeji"));frag.add(new Fragment1(MyUrl.path,"jinritoutiaocaijing"));
+        frag.add(new Fragment1(MyUrl.path,"jinritoutiaoshishang"));
+
     }
     }
 

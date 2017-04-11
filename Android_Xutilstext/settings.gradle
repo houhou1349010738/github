@@ -1,1 +1,1 @@
-include ':app', ':magicindicator', ':mylibrary'
+include ':app', ':magicindicator', ':mylibrary', ':day411'
