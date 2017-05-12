@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CJNTextveiw">
+        <attr name="CJNtext" format="string"></attr>
+        <attr name="CJNwidth" format="integer"></attr>
+        <attr name="CJNheigth" format="integer"></attr>
+        <attr name="CJNtextsize" format="integer"></attr>
+        <attr name="CJNcolor" format="color"></attr>
+        <attr name="CJNsuiping" format="boolean"></attr>
+        <attr name="CJNcuizhi" format="boolean"></attr>
+    </declare-styleable>
+</resources>
